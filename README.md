@@ -4,7 +4,7 @@
 
 **Supports 1.18-1.21**
 
-[Source](https://github.com/Efnilite/neoschematic) · [SpigotMC](https://www.spigotmc.org/resources/116652/) · by [Efnilite](https://github.com/Efnilite)
+Original [Source](https://github.com/Efnilite/neoschematic) · [SpigotMC](https://www.spigotmc.org/resources/116652/) · by [Efnilite](https://github.com/Efnilite)
 
 </div>
 
@@ -28,16 +28,17 @@
 ```xml
 <repositories>
     <repository>
-        <id>jitpack</id>
-        <url>https://jitpack.io</url>
+        <id>badgames-releases</id>
+        <name>BadGames Repository</name>
+        <url>https://repo.badgames.de/releases</url>
     </repository>
 </repositories>
 
 <dependencies>
     <dependency>
-        <groupId>com.github.Efnilite</groupId>
+        <groupId>de.badgames</groupId>
         <artifactId>neoschematic</artifactId>
-        <version>v1.2.0</version>
+        <version>1.3.0</version>
         <scope>compile</scope>
     </dependency>
 </dependencies>
@@ -59,7 +60,7 @@
         <configuration>
             <relocations>
                 <relocation>
-                    <pattern>dev.efnilite.neoschematic</pattern>
+                    <pattern>de.badgames.neoschematic</pattern>
                     <!-- Replace 'com.yourpackage' with the package of your plugin ! -->
                     <shadedPattern>com.yourpackage.neoschematic</shadedPattern>
                 </relocation>
@@ -79,15 +80,19 @@ plugins {
 
 repositories {
     mavenCentral()
+    maven {
+      name "badgamesReleases"
+      url "https://repo.badgames.de/releases"
+    }
 }
 
 dependencies {
-    implementation 'com.github.Efnilite:neoschematic:v1.2.0'
+    implementation 'de.badgames:neoschematic:1.3.0'
 }
 
 shadowJar {
     // Replace 'com.yourpackage' with the package of your plugin 
-    relocate 'dev.efnilite.neoschematic', 'com.yourpackage.neoschematic'
+    relocate 'de.badgames.neoschematic', 'com.yourpackage.neoschematic'
 }
 ```
 
@@ -129,7 +134,7 @@ Schematic.loadAsync("plugins/schematic.json", plugin).thenAccept(schematic -> {
 ### Example plugin
 
 ```java
-package dev.efnilite.neoschematic;
+package de.badgames.neoschematic;
 
 import org.bukkit.Location;
 import org.bukkit.block.Block;

@@ -1,4 +1,4 @@
-package dev.efnilite.neoschematic;
+package de.badgames.neoschematic;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

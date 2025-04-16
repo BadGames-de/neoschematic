@@ -1,4 +1,4 @@
-package dev.efnilite.neoschematic;
+package de.badgames.neoschematic;
 
 import java.io.*;
 import java.util.zip.ZipEntry;

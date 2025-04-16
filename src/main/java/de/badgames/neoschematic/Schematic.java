@@ -1,4 +1,4 @@
-package dev.efnilite.neoschematic;
+package de.badgames.neoschematic;
 
 import com.google.common.base.Preconditions;
 import org.bukkit.Bukkit;
