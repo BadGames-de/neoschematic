@@ -5,13 +5,13 @@ on:
   workflow_dispatch: { }
 jobs:
   snapshot:
-    name: Publish all to Snapshot
+    name: Gradle Publish
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Set up BadGames Repository
+      - name: Set up Java 17
         uses: actions/setup-java@v4
         with:
           java-version: '17'
