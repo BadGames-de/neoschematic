@@ -1,9 +1,10 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
-group = 'dev.efnilite'
-version = '1.1.0'
+group = 'de.badgames'
+version = project.hasProperty('version') ? project.property('version') : '1.3.0'
 
 repositories {
     mavenCentral()
@@ -13,12 +14,43 @@ repositories {
     }
 }
 
-configurations {
-    testImplementation.extendsFrom testShadow
-}
-
 dependencies {
     compileOnly "io.papermc.paper:paper-api:1.18.2-R0.1-SNAPSHOT"
-    implementation group: 'org.jetbrains', name: 'annotations', version: '26.0.2'
+    compileOnly group: 'org.jetbrains', name: 'annotations', version: '26.0.2'
     annotationProcessor group: 'org.jetbrains', name: 'annotations', version: '26.0.2'
+}
+
+// Maven publishing setup
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+
+            groupId = project.group
+            artifactId = 'neoschematic'
+            version = project.version
+        }
+    }
+
+    repositories {
+        if (project.hasProperty("release")) {
+            maven {
+                name = "badgamesReleases"
+                url = uri("https://repo.badgames.de/releases")
+                credentials {
+                    username = findProperty("repoUser") ?: System.getenv("REPO_USER")
+                    password = findProperty("repoPassword") ?: System.getenv("REPO_PASSWORD")
+                }
+            }
+        } else {
+            maven {
+                name = "badgamesSnapshots"
+                url = uri("https://repo.badgames.de/snapshots")
+                credentials {
+                    username = findProperty("repoUser") ?: System.getenv("REPO_USER")
+                    password = findProperty("repoPassword") ?: System.getenv("REPO_PASSWORD")
+                }
+            }
+        }
+    }
 }

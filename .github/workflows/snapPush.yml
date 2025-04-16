@@ -1,0 +1,29 @@
+name: Publish package to the BadGames Snapshot Repository
+on:
+  push:
+    branches: [ "master" ]
+  workflow_dispatch: { }
+jobs:
+  snapshot:
+    name: Publish all to Snapshot
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up BadGames Repository
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'gradle'
+      - name: 'Get Previous tag'
+        id: previoustag
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
+        with:
+          fallback: 1.3.0
+      - name: Publish to Snapshot Repository
+        run: ./gradlew publish -Pversion=${{ steps.previoustag.outputs.tag }}-$(git rev-parse --short HEAD)
+        env:
+          REPO_USER: ${{ secrets.REPO_USER }}
+          REPO_PASSWORD: ${{ secrets.REPO_PASSWORD }}
