@@ -5,6 +5,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 
+/**
+ * Interface for creating your own Schematic Loader.
+ */
 public interface FileType {
 
    /**

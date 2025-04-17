@@ -48,10 +48,21 @@ public class JsonSchematic implements FileType {
     @Expose
     private Map<String, List<String>> waypoints;
 
+    /**
+     * Constructor for creating a new Json Schematic.
+     */
     public JsonSchematic() {
 
     }
 
+    /**
+     * Constructor for creating a new Json Schematic.
+     * @param dataVersion Schematic Version.
+     * @param minecraftVersion Minecraft Version.
+     * @param dimensions Dimensions of the Schematic.
+     * @param palette Palette of the Schematic.
+     * @param blocks Blocks of the Schematic.
+     */
     public JsonSchematic(
             int dataVersion, String minecraftVersion,
             List<Integer> dimensions, List<String> palette,
@@ -65,6 +76,15 @@ public class JsonSchematic implements FileType {
         this.waypoints = new HashMap<>();
     }
 
+    /**
+     * Constructor for creating a new Json Schematic.
+     * @param dataVersion Schematic Version.
+     * @param minecraftVersion Minecraft Version.
+     * @param dimensions Dimensions of the Schematic.
+     * @param palette Palette of the Schematic.
+     * @param blocks Blocks of the Schematic.
+     * @param waypoints Map of Waypoints.
+     */
     public JsonSchematic(
             int dataVersion, String minecraftVersion,
             List<Integer> dimensions, List<String> palette,

@@ -24,6 +24,9 @@ import java.util.stream.Collectors;
  */
 public final class Schematic {
 
+    /**
+     * Current Schematic Version.
+     */
     public static final int DATA_VERSION = 2;
     private final int dataVersion;
     private final String minecraftVersion;
@@ -49,8 +52,8 @@ public final class Schematic {
         this.blocks = blocks;
         this.waypoints = waypoints;
     }
-  
-      /**
+
+    /**
      * @param dataVersion      The data version.
      * @param minecraftVersion The Minecraft version.
      * @param dimensions       The dimensions of the schematic.
@@ -99,8 +102,8 @@ public final class Schematic {
      * Synchronously gets and stores all blocks between the positions in a new {@link Schematic} instance.
      * For large schematics, use {@link #createAsync(Location, Location, Plugin)}.
      *
-     * @param pos1 The first position.
-     * @param pos2 The second position.
+     * @param pos1      The first position.
+     * @param pos2      The second position.
      * @param waypoints A map of waypoints, where each key identifies a vector offset from the paste location.
      * @return A new {@link Schematic} instance.
      */
@@ -119,8 +122,8 @@ public final class Schematic {
      * Synchronously gets and stores all blocks between the positions in a new {@link Schematic} instance.
      * For large schematics, use {@link #createAsync(Block, Block, Plugin)}.
      *
-     * @param pos1 The first block.
-     * @param pos2 The second block.
+     * @param pos1      The first block.
+     * @param pos2      The second block.
      * @param waypoints A map of waypoints, where each key identifies a vector offset from the paste location.
      * @return A new {@link Schematic} instance.
      */
@@ -155,8 +158,8 @@ public final class Schematic {
      * Asynchronously gets and stores all blocks between the positions in a new {@link Schematic} instance.
      * This method avoids blocking the main thread during block fetching.
      *
-     * @param pos1 The first position.
-     * @param pos2 The second position.
+     * @param pos1   The first position.
+     * @param pos2   The second position.
      * @param plugin The plugin instance.
      * @return A {@link CompletableFuture}. When completed, the new {@link Schematic} instance is returned.
      */
@@ -177,8 +180,8 @@ public final class Schematic {
      * Asynchronously gets and stores all blocks between the positions in a new {@link Schematic} instance.
      * This method avoids blocking the main thread during block fetching.
      *
-     * @param pos1 The first position.
-     * @param pos2 The second position.
+     * @param pos1   The first position.
+     * @param pos2   The second position.
      * @param plugin The plugin instance.
      * @return A {@link CompletableFuture}. When completed, the new {@link Schematic} instance is returned.
      */
@@ -195,10 +198,10 @@ public final class Schematic {
      * Asynchronously gets and stores all blocks between the positions in a new {@link Schematic} instance.
      * This method avoids blocking the main thread during block fetching.
      *
-     * @param pos1 The first position.
-     * @param pos2 The second position.
+     * @param pos1      The first position.
+     * @param pos2      The second position.
      * @param waypoints A map of waypoints, where each key identifies a vector offset from the paste location.
-     * @param plugin The plugin instance.
+     * @param plugin    The plugin instance.
      * @return A {@link CompletableFuture}. When completed, the new {@link Schematic} instance is returned.
      */
     @NotNull
@@ -219,10 +222,10 @@ public final class Schematic {
      * Asynchronously gets and stores all blocks between the positions in a new {@link Schematic} instance.
      * This method avoids blocking the main thread during block fetching.
      *
-     * @param pos1 The first position.
-     * @param pos2 The second position.
+     * @param pos1      The first position.
+     * @param pos2      The second position.
      * @param waypoints A map of waypoints, where each key identifies a vector offset from the paste location.
-     * @param plugin The plugin instance.
+     * @param plugin    The plugin instance.
      * @return A {@link CompletableFuture}. When completed, the new {@link Schematic} instance is returned.
      */
     @NotNull
@@ -294,8 +297,8 @@ public final class Schematic {
     /**
      * Asynchronously reads a schematic from a file with the specified {@link FileType}.
      *
-     * @param file The file to read.
-     * @param type The {@link FileType} instance.
+     * @param file   The file to read.
+     * @param type   The {@link FileType} instance.
      * @param plugin The plugin instance.
      * @return A {@link CompletableFuture}. When completed, the new {@link Schematic} instance is returned,
      * or null if reading fails or if the file doesn't exist.
@@ -312,8 +315,8 @@ public final class Schematic {
     /**
      * Asynchronously reads a schematic from a file with the specified {@link FileType}.
      *
-     * @param file The file to read.
-     * @param type The {@link FileType} instance.
+     * @param file   The file to read.
+     * @param type   The {@link FileType} instance.
      * @param plugin The plugin instance.
      * @return A {@link CompletableFuture}. When completed, the new {@link Schematic} instance is returned,
      * or null if reading fails or if the file doesn't exist.
@@ -326,7 +329,7 @@ public final class Schematic {
     /**
      * Asynchronously reads a schematic from a file with the default {@link JsonSchematic}.
      *
-     * @param file The file to read.
+     * @param file   The file to read.
      * @param plugin The plugin instance.
      * @return A {@link CompletableFuture}. When completed, the new {@link Schematic} instance is returned,
      * or null if reading fails or if the file doesn't exist.
@@ -339,7 +342,7 @@ public final class Schematic {
     /**
      * Asynchronously reads a schematic from a file with the default {@link JsonSchematic}.
      *
-     * @param file The file to read.
+     * @param file   The file to read.
      * @param plugin The plugin instance.
      * @return A {@link CompletableFuture}. When completed, the new {@link Schematic} instance is returned,
      * or null if reading fails or if the file doesn't exist.
@@ -444,8 +447,8 @@ public final class Schematic {
     /**
      * Asynchronously saves the schematic to a file with the specified {@link FileType}.
      *
-     * @param file The file to save to.
-     * @param type The {@link FileType} instance.
+     * @param file   The file to save to.
+     * @param type   The {@link FileType} instance.
      * @param plugin The plugin instance.
      * @return A {@link CompletableFuture}.
      * When completed, {@code true} if the schematic was saved successfully, false if an error was returned.
@@ -462,8 +465,8 @@ public final class Schematic {
     /**
      * Asynchronously saves the schematic to a file with the specified {@link FileType}.
      *
-     * @param file The file to save to.
-     * @param type The {@link FileType} instance.
+     * @param file   The file to save to.
+     * @param type   The {@link FileType} instance.
      * @param plugin The plugin instance.
      * @return A {@link CompletableFuture}.
      * When completed, {@code true} if the schematic was saved successfully, false if an error was returned.
@@ -476,7 +479,7 @@ public final class Schematic {
     /**
      * Asynchronously saves the schematic to a file with the default {@link JsonSchematic}.
      *
-     * @param file The file to save to.
+     * @param file   The file to save to.
      * @param plugin The plugin instance.
      * @return A {@link CompletableFuture}.
      * When completed, {@code true} if the schematic was saved successfully, false if an error was returned.
@@ -489,7 +492,7 @@ public final class Schematic {
     /**
      * Asynchronously saves the schematic to a file with the default {@link JsonSchematic}.
      *
-     * @param file The file to save to.
+     * @param file   The file to save to.
      * @param plugin The plugin instance.
      * @return A {@link CompletableFuture}.
      * When completed, {@code true} if the schematic was saved successfully, false if an error was returned.
@@ -503,6 +506,7 @@ public final class Schematic {
      * Pastes the schematic at the specified location.
      *
      * @param location The location to paste the schematic at.
+     * @param skipAir If Air blocks should not be placed.
      * @return A list of all blocks which have been altered.
      */
     public List<Block> paste(@NotNull Location location, boolean skipAir) {
@@ -512,7 +516,8 @@ public final class Schematic {
     /**
      * Pastes the schematic at the specified block.
      *
-     * @param block The block to paste the schematic at.
+     * @param block   The block to paste the schematic at.
+     * @param skipAir If Air blocks should not be placed.
      * @return A list of all blocks which have been altered.
      */
     public List<Block> paste(@NotNull Block block, boolean skipAir) {
@@ -561,7 +566,7 @@ public final class Schematic {
      * If the waypoints do not exist, null is returned.
      *
      * @param pastedAt The location where the schematic was pasted.
-     * @param name The name of the waypoint.
+     * @param name     The name of the waypoint.
      * @return The absolute location of the waypoints, or null if the waypoints do not exist.
      */
     @Nullable
@@ -574,7 +579,7 @@ public final class Schematic {
      * If the waypoints do not exist, null is returned.
      *
      * @param pastedAt The block where the schematic was pasted.
-     * @param name The name of the waypoint.
+     * @param name     The name of the waypoint.
      * @return The absolute location of the waypoints, or null if the waypoints do not exist.
      */
     @Nullable
@@ -585,11 +590,33 @@ public final class Schematic {
             return null;
         }
 
+        var waypoints = getWaypoints(pastedAt.getWorld(), name);
+
+        if (waypoints == null) {
+            return null;
+        }
+
+        return waypoints.stream().map(x -> x.clone().add(pastedAt.getLocation())).toList();
+    }
+
+    /**
+     * Returns the relative locations of specific waypoints.
+     * If the waypoints do not exist, null is returned.
+     *
+     * @param world The world in which the schematic will be pasted.
+     * @param name  The name of the waypoint.
+     * @return The relative location of the waypoints, or null if the waypoints do not exist.
+     */
+    public List<Location> getWaypoints(@NotNull World world, String name) {
+        if (!waypoints.containsKey(name)) {
+            return null;
+        }
+
         return waypoints.get(name).stream()
                 .map(location -> {
                     Location added = location.clone();
-                    added.setWorld(pastedAt.getWorld());
-                    return added.add(pastedAt.getLocation());
+                    added.setWorld(world);
+                    return added;
                 })
                 .toList();
     }
@@ -599,7 +626,7 @@ public final class Schematic {
      * If the waypoint does not exist, null is returned.
      *
      * @param pastedAt The location where the schematic was pasted.
-     * @param name The name of the waypoint.
+     * @param name     The name of the waypoint.
      * @return The absolute location of the waypoint, or null if the waypoint does not exist.
      */
     @Nullable
@@ -612,12 +639,31 @@ public final class Schematic {
      * If the waypoint does not exist, null is returned.
      *
      * @param pastedAt The block where the schematic was pasted.
-     * @param name The name of the waypoint.
+     * @param name     The name of the waypoint.
      * @return The absolute location of the waypoint, or null if the waypoint does not exist.
      */
     @Nullable
     public Location getWaypoint(@NotNull Block pastedAt, @NotNull String name) {
-        Preconditions.checkNotNull(pastedAt.getWorld(), "World is null");
+        var waypoint = getWaypoint(pastedAt.getWorld(), name);
+
+        if (waypoint == null) {
+            return null;
+        }
+
+        return waypoint.clone().add(pastedAt.getLocation());
+    }
+
+    /**
+     * Returns the relative location of a specific waypoint.
+     * If the waypoint does not exist, null is returned.
+     *
+     * @param world The world in which the schematic will be pasted.
+     * @param name  The name of the waypoint.
+     * @return The relative location of the waypoint, or null if the waypoint does not exist.
+     */
+    @Nullable
+    public Location getWaypoint(@NotNull World world, @NotNull String name) {
+        Preconditions.checkNotNull(world, "World is null");
 
         if (!waypoints.containsKey(name)) {
             return null;
@@ -630,8 +676,8 @@ public final class Schematic {
         }
 
         Location added = location.clone();
-        added.setWorld(pastedAt.getWorld());
-        return added.clone().add(pastedAt.getLocation());
+        added.setWorld(world);
+        return added;
     }
 
     /**
@@ -666,12 +712,18 @@ public final class Schematic {
         return Collections.unmodifiableList(palette);
     }
 
+    /**
+     * @return List of all blocks.
+     */
     @NotNull
     @UnmodifiableView
     public List<Short> getBlocks() {
         return Collections.unmodifiableList(blocks);
     }
 
+    /**
+     * @return Map of all Waypoints of the schematic.
+     */
     @NotNull
     @UnmodifiableView
     public Map<String, List<Location>> getWaypoints() {
@@ -680,6 +732,7 @@ public final class Schematic {
 
     /**
      * @deprecated Use {@link #getDataVersion()} instead.
+     * @return The data version this schematic was saved in.
      */
     @Deprecated(forRemoval = true, since = "1.1.0")
     public int dataVersion() {
@@ -688,6 +741,7 @@ public final class Schematic {
 
     /**
      * @deprecated Use {@link #getDataVersion()} instead.
+     * @return The Minecraft version this schematic was saved in.
      */
     @Deprecated(forRemoval = true, since = "1.1.0")
     public String minecraftVersion() {
@@ -696,6 +750,7 @@ public final class Schematic {
 
     /**
      * @deprecated Use {@link #getDimensions()} instead.
+     * @return The dimensions of the schematic.
      */
     @Deprecated(forRemoval = true, since = "1.1.0")
     public Vector dimensions() {
@@ -704,6 +759,7 @@ public final class Schematic {
 
     /**
      * @deprecated Use {@link #getPalette()} instead.
+     * @return The palette of block data.
      */
     @Deprecated(forRemoval = true, since = "1.1.0")
     public List<BlockData> palette() {
@@ -712,6 +768,7 @@ public final class Schematic {
 
     /**
      * @deprecated Use {@link #getBlocks()} instead.
+     * @return List of all blocks.
      */
     @Deprecated(forRemoval = true, since = "1.1.0")
     public List<Short> blocks() {

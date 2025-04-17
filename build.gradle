@@ -20,6 +20,11 @@ dependencies {
     annotationProcessor group: 'org.jetbrains', name: 'annotations', version: '26.0.2'
 }
 
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
 // Maven publishing setup
 publishing {
     publications {
