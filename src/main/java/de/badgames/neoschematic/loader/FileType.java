@@ -1,5 +1,6 @@
-package de.badgames.neoschematic;
+package de.badgames.neoschematic.loader;
 
+import de.badgames.neoschematic.Schematic;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

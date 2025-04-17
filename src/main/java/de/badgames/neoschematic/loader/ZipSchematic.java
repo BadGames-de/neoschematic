@@ -1,4 +1,4 @@
-package de.badgames.neoschematic;
+package de.badgames.neoschematic.loader;
 
 import java.io.*;
 import java.util.zip.ZipEntry;

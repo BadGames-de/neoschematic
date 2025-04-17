@@ -1,9 +1,10 @@
-package de.badgames.neoschematic;
+package de.badgames.neoschematic.loader;
 
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
+import de.badgames.neoschematic.Schematic;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;

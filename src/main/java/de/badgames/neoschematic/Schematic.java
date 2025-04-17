@@ -1,6 +1,8 @@
 package de.badgames.neoschematic;
 
 import com.google.common.base.Preconditions;
+import de.badgames.neoschematic.loader.FileType;
+import de.badgames.neoschematic.loader.JsonSchematic;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
