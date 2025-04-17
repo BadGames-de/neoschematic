@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'de.badgames'
-version = project.hasProperty('version') ? project.property('version') : '1.3.0'
+version = project.hasProperty('version') ? project.property('version') : '1.3.1'
 
 repositories {
     mavenCentral()
