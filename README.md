@@ -38,7 +38,7 @@ Original [Source](https://github.com/Efnilite/neoschematic) · [SpigotMC](https:
     <dependency>
         <groupId>de.badgames</groupId>
         <artifactId>neoschematic</artifactId>
-        <version>1.3.0</version>
+        <version>1.3.2</version>
         <scope>compile</scope>
     </dependency>
 </dependencies>
@@ -87,7 +87,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'de.badgames:neoschematic:1.3.0'
+    implementation 'de.badgames:neoschematic:1.3.2'
 }
 
 shadowJar {
